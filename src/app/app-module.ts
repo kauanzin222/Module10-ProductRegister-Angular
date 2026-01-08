@@ -2,7 +2,7 @@ import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt'
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
@@ -29,9 +29,9 @@ registerLocaleData(localePt, 'pt');
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
   ],
   providers: [
+    provideHttpClient(withFetch(), withInterceptorsFromDi()),
     provideBrowserGlobalErrorListeners(),
     provideClientHydration(withEventReplay()),
     {provide: LOCALE_ID, useValue: 'pt'}
