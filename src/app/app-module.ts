@@ -13,6 +13,9 @@ import { RegisterProduct } from './components/register-product/register-product'
 import { TableProducts } from './components/table-products/table-products';
 import { Footer } from './components/footer/footer';
 import { registerLocaleData } from '@angular/common';
+import { Navbar } from './components/navbar/navbar';
+import { Home } from './components/home/home';
+import { TableCategories } from './components/table-categories/table-categories';
 
 registerLocaleData(localePt, 'pt');
 
@@ -22,7 +25,10 @@ registerLocaleData(localePt, 'pt');
     RegisterProduct,
     TableProducts,
     Header,
-    Footer
+    Footer,
+    Navbar,
+    Home,
+    TableCategories
   ],
   imports: [
     BrowserModule,
