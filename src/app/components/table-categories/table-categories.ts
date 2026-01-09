@@ -17,6 +17,11 @@ export class TableCategories {
 
   constructor(private categoryService: CategoryService) { }
 
+  ngOnInit(): void {
+    //this.categories = this.categoryService.getCategories();
+    this.loadCategories();
+  }
+
   loadCategories() {
     this.categoryService.getCategories().subscribe({
       /* data é o que vou receber do backend */
@@ -30,7 +35,7 @@ export class TableCategories {
   updateCategory(selectedCategory: CategoryInterface) {
   }
 
-  confirmUpdate(){
+  confirmUpdate() {
   }
 
   removeCategory(selectedCategory: CategoryInterface) {

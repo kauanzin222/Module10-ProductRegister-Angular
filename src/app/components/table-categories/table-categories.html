@@ -1,28 +1,29 @@
-<app-register-product 
+<app-register-category
     [categories]="categories" 
+    [category]="category"
     [isUpdate]="isUpdate"
 
     (saveEmitter)="saveCategory()"
     (updateEmitter)="confirmUpdate()"
-></app-register-product>
+></app-register-category>
 
-<p class="fs-4 mt-3 fw-bold">Categorias Cadastradas:</p>
+<p class="fs-5 mt-3 fw-bold">Categorias Cadastradas:</p>
 
 <div class="row">
     <div class="col-md-10 offset-md-1 mb-5">
         <table class="table" id="productsTable">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col"></th>
+                    <th scope="col" class="col-md-1">#</th>
+                    <th scope="col" class="col-md-9">Nome</th>
+                    <th scope="col" class="col-md-2 text-end pe-3">Opções</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let category of categories">
                     <td>{{category.id}}</td>
                     <td>{{category.name}}</td>
-                    <td>
+                    <td class="text-end pe-3">
                         <img src="edit.svg" alt="edit" class="me-2" (click)="updateCategory(category)">
                         <img src="delete.svg" alt="delete" (click)="removeCategory(category)">
                     </td>

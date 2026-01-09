@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CategoryInterface } from '../../interfaces/CategoryInterface';
 
 @Component({
@@ -8,9 +8,28 @@ import { CategoryInterface } from '../../interfaces/CategoryInterface';
   styleUrl: './register-category.css',
 })
 export class RegisterCategory {
+
+  @Input()
+  categories: CategoryInterface[] = {} as CategoryInterface[];
+
   @Input()
   category?: CategoryInterface;
 
   @Input()
   isUpdate?: boolean;
+
+  @Output()
+  saveEmitter = new EventEmitter();
+
+  @Output()
+  updateEmitter = new EventEmitter();
+
+  save() {
+    this.saveEmitter.emit();
+  }
+
+  update() {
+    this.updateEmitter.emit();
+  }
+
 }
