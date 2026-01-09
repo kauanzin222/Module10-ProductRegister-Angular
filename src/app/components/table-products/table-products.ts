@@ -48,4 +48,12 @@ export class TableProducts implements OnInit {
       }
     });
   };
+
+  updateProduct(product: ProductInterface, id: number) {
+
+  }
+
+  removeProduct(product: ProductInterface) {
+      
+  }
 }
