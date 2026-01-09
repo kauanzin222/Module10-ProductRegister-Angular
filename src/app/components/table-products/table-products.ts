@@ -3,6 +3,8 @@ import { CategoryInterface } from '../../interfaces/CategoryInterface';
 import { ProductInterface } from '../../interfaces/ProductInterface';
 import { CategoryService } from '../../services/category-service';
 import { ProductService } from '../../services/product-service';
+import { Interface } from 'node:readline';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-table-products',
@@ -11,6 +13,8 @@ import { ProductService } from '../../services/product-service';
   styleUrl: './table-products.css',
 })
 export class TableProducts implements OnInit {
+
+  isUpdate: boolean = false;
 
   categories: CategoryInterface[] = [];
 
@@ -41,19 +45,36 @@ export class TableProducts implements OnInit {
   }
 
   saveProduct() {
-    this.productService.save(this.product).subscribe({
-      next: data => {
-        this.products.push(data);
-        this.product = {} as ProductInterface;
-      }
-    });
+    if (!this.isUpdate) {
+      this.productService.save(this.product).subscribe({
+        next: data => {
+          this.products.push(data);
+          this.product = {} as ProductInterface;
+        }
+      });
+    }
   };
 
-  updateProduct(product: ProductInterface, id: number) {
-
+  updateProduct(selectedProduct: ProductInterface) {
+    this.isUpdate = true;
+    this.product = selectedProduct;
   }
 
-  removeProduct(product: ProductInterface) {
-      
+  confirmUpdate() {
+    this.productService.update(this.product).subscribe({
+      next: () => {
+        this.product = {} as ProductInterface;
+        this.isUpdate = false;
+      }
+    });
+  }
+
+  removeProduct(selectedProduct: ProductInterface) {
+    this.productService.remove(selectedProduct).subscribe({
+      next: () => {
+        this.products = this.products.filter(product => product != selectedProduct);
+      }
+    });
+    
   }
 }

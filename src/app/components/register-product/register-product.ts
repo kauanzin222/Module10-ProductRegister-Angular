@@ -16,13 +16,23 @@ export class RegisterProduct implements OnInit {
   @Input()
   product?: ProductInterface;
 
+  @Input()
+  isUpdate?: boolean;
+
   @Output()
   saveEmitter = new EventEmitter();
+
+  @Output()
+  updateEmitter = new EventEmitter();
 
   save() {
     this.saveEmitter.emit();
   }
 
+  update() {
+    this.updateEmitter.emit();
+  }
+  
   constructor() { }
   ngOnInit(): void {
 

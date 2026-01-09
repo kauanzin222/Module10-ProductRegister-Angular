@@ -1,5 +1,11 @@
-<app-register-product [categories]="categories" [product]="product"
-    (saveEmitter)="saveProduct()"></app-register-product>
+<app-register-product 
+    [categories]="categories" 
+    [product]="product"
+    [isUpdate]="isUpdate"
+
+    (saveEmitter)="saveProduct()"
+    (updateEmitter)="confirmUpdate()"
+></app-register-product>
 
 <p class="fs-4 mt-3 fw-bold">Produtos Cadastrados:</p>
 

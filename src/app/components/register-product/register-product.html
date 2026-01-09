@@ -47,7 +47,8 @@
                     </div>
                 </div>
             </fieldset>
-            <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="formProduct.invalid">Cadastrar</button>
+            <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="formProduct.invalid" *ngIf="!isUpdate">Cadastrar</button>
+            <button type="submit" class="btn btn-primary" (click)="update()" [disabled]="formProduct.invalid" *ngIf="isUpdate">Concluir</button>
         </form>
     </div>
 </div>
