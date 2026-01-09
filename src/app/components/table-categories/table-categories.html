@@ -1,0 +1,33 @@
+<app-register-product 
+    [categories]="categories" 
+    [isUpdate]="isUpdate"
+
+    (saveEmitter)="saveCategory()"
+    (updateEmitter)="confirmUpdate()"
+></app-register-product>
+
+<p class="fs-4 mt-3 fw-bold">Categorias Cadastradas:</p>
+
+<div class="row">
+    <div class="col-md-10 offset-md-1 mb-5">
+        <table class="table" id="productsTable">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categories">
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>
+                        <img src="edit.svg" alt="edit" class="me-2" (click)="updateCategory(category)">
+                        <img src="delete.svg" alt="delete" (click)="removeCategory(category)">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

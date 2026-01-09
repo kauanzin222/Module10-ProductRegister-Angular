@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CategoryService } from '../../services/category-service';
+import { CategoryInterface } from '../../interfaces/CategoryInterface';
 
 @Component({
   selector: 'app-table-categories',
@@ -7,5 +9,33 @@ import { Component } from '@angular/core';
   styleUrl: './table-categories.css',
 })
 export class TableCategories {
+  isUpdate: boolean = false;
+
+  // Cria a lista para utilizar na tabela e objeto vazio
+  categories: CategoryInterface[] = [];
+  category: CategoryInterface = {} as CategoryInterface;
+
+  constructor(private categoryService: CategoryService) { }
+
+  loadCategories() {
+    this.categoryService.getCategories().subscribe({
+      /* data é o que vou receber do backend */
+      next: data => { this.categories = data }
+    });
+  }
+
+  saveCategory() {
+  }
+
+  updateCategory(selectedCategory: CategoryInterface) {
+  }
+
+  confirmUpdate(){
+  }
+
+  removeCategory(selectedCategory: CategoryInterface) {
+  }
+
+
 
 }
