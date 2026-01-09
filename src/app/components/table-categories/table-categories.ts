@@ -30,6 +30,7 @@ export class TableCategories {
   }
 
   saveCategory() {
+
   }
 
   updateCategory(selectedCategory: CategoryInterface) {
