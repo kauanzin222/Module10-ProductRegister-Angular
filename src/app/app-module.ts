@@ -16,6 +16,7 @@ import { registerLocaleData } from '@angular/common';
 import { Navbar } from './components/navbar/navbar';
 import { Home } from './components/home/home';
 import { TableCategories } from './components/table-categories/table-categories';
+import { RegisterCategory } from './components/register-category/register-category';
 
 registerLocaleData(localePt, 'pt');
 
@@ -28,7 +29,8 @@ registerLocaleData(localePt, 'pt');
     Footer,
     Navbar,
     Home,
-    TableCategories
+    TableCategories,
+    RegisterCategory
   ],
   imports: [
     BrowserModule,
