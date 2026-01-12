@@ -8,9 +8,22 @@ import { Observable } from 'rxjs';
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCategories(): Observable<CategoryInterface[]> {
     return this.http.get<CategoryInterface[]>("http://localhost:8080/Categories");
   }
+
+  save(category: CategoryInterface) {
+    return this.http.post<CategoryInterface>("http://localhost:8080/Categories", category);
+  }
+
+  update(category: CategoryInterface) {
+    return this.http.put<CategoryInterface>(`http://localhost:8080/Categories/${category.id}`, category);
+  }
+
+  delete(category: CategoryInterface) {
+    return this.http.delete<CategoryInterface>(`http://localhost:8080/Categories/${category.id}`);
+  }
+
 }

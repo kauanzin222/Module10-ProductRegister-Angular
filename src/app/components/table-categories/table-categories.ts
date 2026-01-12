@@ -30,15 +30,36 @@ export class TableCategories {
   }
 
   saveCategory() {
+    if (!this.isUpdate) {
+      this.categoryService.save(this.category).subscribe({
+        next: data => {
+          this.categories.push(data);
+          this.category = {} as CategoryInterface;
+        }
+      })
+    }
   }
 
   updateCategory(selectedCategory: CategoryInterface) {
+    this.isUpdate = true;
+    this.category = selectedCategory
   }
 
   confirmUpdate() {
+    this.categoryService.update(this.category).subscribe({
+      next: () => {
+        this.category = {} as CategoryInterface;
+        this.isUpdate = false;
+      }
+    })
   }
 
-  removeCategory(selectedCategory: CategoryInterface) {
+  deleteCategory(selectedCategory: CategoryInterface) {
+    this.categoryService.delete(selectedCategory).subscribe({
+      next: () => {
+        this.categories.filter(category => category != selectedCategory);
+      }
+    })
   }
 
 
