@@ -9,6 +9,7 @@ import { CategoryInterface } from '../../interfaces/CategoryInterface';
   styleUrl: './table-categories.css',
 })
 export class TableCategories {
+  showError: boolean = false;
   isUpdate: boolean = false;
 
   // Cria a lista para utilizar na tabela e objeto vazio
@@ -58,10 +59,14 @@ export class TableCategories {
     this.categoryService.delete(selectedCategory).subscribe({
       next: () => {
         this.categories.filter(category => category != selectedCategory);
+      },
+      error: () => {
+        this.showError = true;
       }
     })
   }
 
-
-
+  resetError() {
+    this.showError = false;
+  }
 }

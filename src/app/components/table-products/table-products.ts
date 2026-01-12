@@ -13,7 +13,6 @@ import { filter } from 'rxjs';
   styleUrl: './table-products.css',
 })
 export class TableProducts implements OnInit {
-
   isUpdate: boolean = false;
 
   categories: CategoryInterface[] = [];
@@ -75,6 +74,5 @@ export class TableProducts implements OnInit {
         this.products = this.products.filter(product => product != selectedProduct);
       }
     });
-    
   }
 }

@@ -1,11 +1,5 @@
-<app-register-category
-    [categories]="categories" 
-    [category]="category"
-    [isUpdate]="isUpdate"
-
-    (saveEmitter)="saveCategory()"
-    (updateEmitter)="confirmUpdate()"
-></app-register-category>
+<app-register-category [categories]="categories" [category]="category" [isUpdate]="isUpdate"
+    (saveEmitter)="saveCategory()" (updateEmitter)="confirmUpdate()"></app-register-category>
 
 <p class="fs-5 mt-3 fw-bold">Categorias Cadastradas:</p>
 
@@ -24,11 +18,21 @@
                     <td>{{category.id}}</td>
                     <td>{{category.name}}</td>
                     <td class="text-end pe-3">
-                        <img src="edit.svg" alt="edit" class="me-2" (click)="updateCategory(category)" [style.cursor]="'pointer'">
-                        <img src="delete.svg" alt="delete" (click)="deleteCategory(category)" [style.cursor]="'pointer'">
+                        <img src="edit.svg" alt="edit" class="me-2" (click)="updateCategory(category)"
+                            [style.cursor]="'pointer'">
+                        <img src="delete.svg" alt="delete" (click)="deleteCategory(category)"
+                            [style.cursor]="'pointer'">
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+</div>
+<div class="toast-container mt-3 top-0 start-50 translate-middle-x">
+    @if (showError) {
+    <ngb-toast header="Erro!" [autohide]="false" (hidden)="showError = false"
+        class="bg-danger text-white border-0 fw-bold">
+        Categoria possui produtos relacionados.
+    </ngb-toast>
+    }
 </div>

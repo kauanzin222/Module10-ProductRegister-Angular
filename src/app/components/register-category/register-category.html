@@ -11,9 +11,9 @@
                         required>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="formCateegory.invalid"
+            <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="formCateegory.invalid"
                 *ngIf="!isUpdate">Cadastrar</button>
-            <button type="submit" class="btn btn-primary" [disabled]="formCateegory.invalid"
+            <button type="submit" class="btn btn-primary" (click)="update()" [disabled]="formCateegory.invalid"
                 *ngIf="isUpdate">Concluir</button>
         </form>
     </div>
