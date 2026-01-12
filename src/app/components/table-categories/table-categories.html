@@ -24,8 +24,8 @@
                     <td>{{category.id}}</td>
                     <td>{{category.name}}</td>
                     <td class="text-end pe-3">
-                        <img src="edit.svg" alt="edit" class="me-2" (click)="updateCategory(category)">
-                        <img src="delete.svg" alt="delete" (click)="removeCategory(category)">
+                        <img src="edit.svg" alt="edit" class="me-2" (click)="updateCategory(category)" [style.cursor]="'pointer'">
+                        <img src="delete.svg" alt="delete" (click)="removeCategory(category)" [style.cursor]="'pointer'">
                     </td>
                 </tr>
             </tbody>

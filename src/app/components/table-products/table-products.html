@@ -34,8 +34,8 @@
                         <span *ngIf="product.newProduct" class='badge bg-primary me-1'>L</span>
                     </td>
                     <td>
-                        <img src="edit.svg" alt="edit" class="me-2" (click)="updateProduct(product)">
-                        <img src="delete.svg" alt="delete" (click)="removeProduct(product)">
+                        <img src="edit.svg" alt="edit" class="me-2" (click)="updateProduct(product)" [style.cursor]="'pointer'">
+                        <img src="delete.svg" alt="delete" (click)="removeProduct(product)" [style.cursor]="'pointer'">
                     </td>
                 </tr>
             </tbody>
