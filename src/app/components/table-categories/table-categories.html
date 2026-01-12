@@ -1,5 +1,12 @@
-<app-register-category [categories]="categories" [category]="category" [isUpdate]="isUpdate"
-    (saveEmitter)="saveCategory()" (updateEmitter)="confirmUpdate()"></app-register-category>
+<app-register-category 
+    [categories]="categories" 
+    [category]="category" 
+    [isUpdate]="isUpdate"
+    
+    (cancelEmitter)="cancelUpdate()"
+    (saveEmitter)="saveCategory()" 
+    (updateEmitter)="confirmUpdate()">
+</app-register-category>
 
 <p class="fs-5 mt-3 fw-bold">Categorias Cadastradas:</p>
 
@@ -30,7 +37,7 @@
 </div>
 <div class="toast-container mt-3 top-0 start-50 translate-middle-x">
     @if (showError) {
-    <ngb-toast header="Erro!" [autohide]="false" (hidden)="showError = false"
+    <ngb-toast header="ERRO!" [autohide]="false" (hidden)="showError = false"
         class="bg-danger text-white border-0 fw-bold">
         Categoria possui produtos relacionados.
     </ngb-toast>

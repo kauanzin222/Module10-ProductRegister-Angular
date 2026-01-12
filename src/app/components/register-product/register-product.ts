@@ -9,6 +9,7 @@ import { ProductInterface } from '../../interfaces/ProductInterface';
   styleUrls: ['./register-product.css'],
 })
 export class RegisterProduct implements OnInit {
+  isCanceled: boolean = false;
 
   @Input()
   categories: CategoryInterface[] = {} as CategoryInterface[];
@@ -24,6 +25,14 @@ export class RegisterProduct implements OnInit {
 
   @Output()
   updateEmitter = new EventEmitter();
+
+  @Output()
+  cancelEmitter = new EventEmitter();
+
+  cancel() {
+    this.product = {} as ProductInterface;
+    this.cancelEmitter.emit();
+  }
 
   save() {
     this.saveEmitter.emit();

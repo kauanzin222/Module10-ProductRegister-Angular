@@ -20,9 +20,17 @@ export class RegisterCategory {
 
   @Output()
   saveEmitter = new EventEmitter();
-
+  
   @Output()
   updateEmitter = new EventEmitter();
+
+  @Output()
+  cancelEmitter = new EventEmitter();
+
+  cancel() {
+    this.category = {} as CategoryInterface;
+    this.cancelEmitter.emit();
+  }
 
   save() {
     this.saveEmitter.emit();

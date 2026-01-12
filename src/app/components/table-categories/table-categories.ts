@@ -69,4 +69,9 @@ export class TableCategories {
   resetError() {
     this.showError = false;
   }
+
+  cancelUpdate() {
+    this.category = {} as CategoryInterface;
+    this.isUpdate = false;
+  }
 }

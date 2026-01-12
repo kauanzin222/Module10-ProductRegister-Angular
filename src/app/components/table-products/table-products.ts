@@ -68,6 +68,11 @@ export class TableProducts implements OnInit {
     });
   }
 
+  cancelUpdate() {
+    this.product = {} as ProductInterface;
+    this.isUpdate = false;
+  }
+
   deleteProduct(selectedProduct: ProductInterface) {
     this.productService.delete(selectedProduct).subscribe({
       next: () => {
