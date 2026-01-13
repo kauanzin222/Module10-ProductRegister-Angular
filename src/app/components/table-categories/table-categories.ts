@@ -58,7 +58,7 @@ export class TableCategories {
   deleteCategory(selectedCategory: CategoryInterface) {
     this.categoryService.delete(selectedCategory).subscribe({
       next: () => {
-        this.categories.filter(category => category != selectedCategory);
+        this.categories = this.categories.filter(category => category != selectedCategory);
       },
       error: () => {
         this.showError = true;
