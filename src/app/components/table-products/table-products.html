@@ -5,8 +5,8 @@
 
 <div *ngIf="!showForm">
     <div class="row mb-3">
-        <div class="col fs-5 mt-3 fw-bold">
-            <p>Produtos Cadastrados:</p>
+        <div class="col">
+            <p class="fs-5 mt-3 fw-bold">Produtos Cadastrados:</p>
         </div>
         <div class="col d-flex justify-content-end">
             <i class="bi bi-plus-circle mt-2" style="font-size: 2rem; color: cornflowerblue; cursor: pointer;"
@@ -39,8 +39,11 @@
                             <span *ngIf="product.newProduct" class='badge bg-primary me-1'>L</span>
                         </td>
                         <td>
-                            <i class="bi bi-pencil p-1 me-2" style="font-size: 1.25rem; color: #1E90FF; cursor: pointer;" (click)="updateProduct(product)"></i>
-                            <i class="bi bi-trash-fill" style="font-size: 1.25rem; color: red; cursor: pointer;" (click)="deleteProduct(product)"></i>
+                            <i class="bi bi-pencil p-1 me-2"
+                                style="font-size: 1.25rem; color: #1E90FF; cursor: pointer;"
+                                (click)="updateProduct(product)"></i>
+                            <i class="bi bi-trash-fill" style="font-size: 1.25rem; color: red; cursor: pointer;"
+                                (click)="deleteProduct(product)"></i>
                         </td>
                     </tr>
                 </tbody>

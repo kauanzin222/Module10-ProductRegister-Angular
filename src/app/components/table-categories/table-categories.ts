@@ -11,6 +11,7 @@ import { CategoryInterface } from '../../interfaces/CategoryInterface';
 export class TableCategories {
   showError: boolean = false;
   isUpdate: boolean = false;
+  showForm: boolean = false;
 
   // Cria a lista para utilizar na tabela e objeto vazio
   categories: CategoryInterface[] = [];
@@ -36,6 +37,7 @@ export class TableCategories {
         next: data => {
           this.categories.push(data);
           this.category = {} as CategoryInterface;
+          this.showForm = false;
         }
       })
     }
@@ -44,6 +46,7 @@ export class TableCategories {
   updateCategory(selectedCategory: CategoryInterface) {
     this.isUpdate = true;
     this.category = selectedCategory
+    this.showForm = true;
   }
 
   confirmUpdate() {
@@ -51,6 +54,7 @@ export class TableCategories {
       next: () => {
         this.category = {} as CategoryInterface;
         this.isUpdate = false;
+        this.showForm = false;
       }
     })
   }
@@ -73,5 +77,10 @@ export class TableCategories {
   cancelUpdate() {
     this.category = {} as CategoryInterface;
     this.isUpdate = false;
+    this.showForm = false;
+  }
+
+  create() {
+    this.showForm = true;
   }
 }

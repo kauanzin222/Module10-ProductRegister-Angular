@@ -12,9 +12,9 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary" (click)="save()" [disabled]="formCateegory.invalid"
-                *ngIf="!isUpdate">Salvar</button>
+                *ngIf="!isUpdate">Concluir</button>
             <button type="submit" class="btn btn-primary" (click)="update()" [disabled]="formCateegory.invalid"
-                *ngIf="isUpdate">Concluir</button>
+                *ngIf="isUpdate">Salvar</button>
             <button type="submit" class="ms-2 btn btn-danger" (click)="cancel()">Cancelar</button>
         </form>
     </div>
