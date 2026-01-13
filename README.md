@@ -1,59 +1,40 @@
-# ProductRegistrationWithangular
+# Product Registration - Fullstack Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+This project marks a significant milestone in my journey as a developer, being the **first full-stack application I have built entirely on my own**.
 
-## Development server
+## 🚀 Project Overview
 
-To start a local development server, run:
+The objective of this project was to create a product registration system, integrating a Java-based backend with an Angular frontend. It served as a practical playground to understand software organization, data flow, and the intricacies of connecting a client application to a server.
 
-```bash
-ng serve
-```
+## 🧠 Key Learnings
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Throughout the development process, I acquired and refined several skills:
 
-## Code scaffolding
+*   **Software Organization**: Learned how to structure a full-stack project for better maintainability.
+*   **Routing**: Implemented navigation within the application.
+*   **Service & JPA Patterns**: Applied service-oriented architecture and JPA concepts to manage data efficiently.
+*   **Backend-Frontend Integration**: Successfully connected the Angular frontend to the backend API.
+*   **Database Management**: Utilized **H2 Console** for database operations.
+*   **HTTP Methods**: Implemented full CRUD capabilities using `PUT`, `DELETE`, `POST`, and `GET` methods.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🎨 Frontend Focus: Repository & Service Structure
 
-```bash
-ng generate component component-name
-```
+I placed a special emphasis on the Frontend architecture to ensure clean code and separation of concerns. I implemented a robust **Repository and Service** structure.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+*   **Services**: I created dedicated services (e.g., `CategoryService`, `ProductService`) to handle business logic and HTTP communication.
+*   **Repository Pattern**: I structured the data access layer to abstract the data source from the components, making the application more modular and easier to test.
 
-```bash
-ng generate --help
-```
+This approach allowed me to keep my components, such as the product table, focused purely on presentation and user interaction while the services handled the heavy lifting of data manipulation.
 
-## Building
+## 🛠️ Technologies Used
 
-To build the project run:
+*   **Frontend**: Angular
+*   **Backend**: Java (Spring Boot)
+*   **Database**: H2 Database
 
-```bash
-ng build
-```
+## 🖥️ Back-End Repository
+https://github.com/kauanzin222/Module10-ProductRegister-SpringBoot.git
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Project developed for study and improvement purposes. 📚
