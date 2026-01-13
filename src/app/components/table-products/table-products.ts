@@ -14,6 +14,7 @@ import { filter } from 'rxjs';
 })
 export class TableProducts implements OnInit {
   isUpdate: boolean = false;
+  showForm: boolean = false;
 
   categories: CategoryInterface[] = [];
 
@@ -49,6 +50,7 @@ export class TableProducts implements OnInit {
         next: data => {
           this.products.push(data);
           this.product = {} as ProductInterface;
+          this.showForm = false;
         }
       });
     }
@@ -56,6 +58,7 @@ export class TableProducts implements OnInit {
 
   updateProduct(selectedProduct: ProductInterface) {
     this.isUpdate = true;
+    this.showForm = true;
     this.product = selectedProduct;
   }
 
@@ -64,6 +67,7 @@ export class TableProducts implements OnInit {
       next: () => {
         this.product = {} as ProductInterface;
         this.isUpdate = false;
+        this.showForm = false;
       }
     });
   }
@@ -71,6 +75,7 @@ export class TableProducts implements OnInit {
   cancelUpdate() {
     this.product = {} as ProductInterface;
     this.isUpdate = false;
+    this.showForm = false;
   }
 
   deleteProduct(selectedProduct: ProductInterface) {
@@ -79,5 +84,9 @@ export class TableProducts implements OnInit {
         this.products = this.products.filter(product => product != selectedProduct);
       }
     });
+  }
+
+  create() {
+    this.showForm = true;
   }
 }
