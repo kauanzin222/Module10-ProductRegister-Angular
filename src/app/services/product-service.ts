@@ -16,9 +16,6 @@ export class ProductService {
 
   save(product: ProductInterface) {
     return this.http.post<ProductInterface>("http://localhost:8080/Products", product);
-
-    /*product.id = this.products.length + 1;
-    this.products.push(product);*/
   }
 
   update(product: ProductInterface) {

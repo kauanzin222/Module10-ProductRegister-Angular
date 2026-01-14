@@ -42,8 +42,11 @@ export class RegisterProduct implements OnInit {
     this.updateEmitter.emit();
   }
   
+  selectedCategory(category1: CategoryInterface, category2: CategoryInterface) {
+    return category1 && category2 ? category1.id === category2.id : false;
+  }
+
   constructor() { }
   ngOnInit(): void {
-
   }
 }

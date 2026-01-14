@@ -36,11 +36,11 @@ export class TableCategories {
       this.categoryService.save(this.category).subscribe({
         next: data => {
           this.categories.push(data);
-          this.category = {} as CategoryInterface;
-          this.showForm = false;
         }
       })
     }
+    this.category = {} as CategoryInterface;
+    this.showForm = false;
   }
 
   updateCategory(selectedCategory: CategoryInterface) {
@@ -53,10 +53,10 @@ export class TableCategories {
     this.categoryService.update(this.category).subscribe({
       next: () => {
         this.category = {} as CategoryInterface;
-        this.isUpdate = false;
-        this.showForm = false;
       }
     })
+    this.isUpdate = false;
+    this.showForm = false;
   }
 
   deleteCategory(selectedCategory: CategoryInterface) {
